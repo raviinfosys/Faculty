@@ -2,6 +2,7 @@ package com.faculty.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,7 +11,8 @@ import javax.persistence.Table;
 public class Emp {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//@GeneratedValue
 	private int id;
 	private String name;
 	
@@ -26,13 +28,10 @@ public class Emp {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Emp(int id, String name) {
-		super();
-		this.id = id;
+	public Emp(String name) {
 		this.name = name;
 	}
 	public Emp() {
-		super();
 	}
 	
 }
