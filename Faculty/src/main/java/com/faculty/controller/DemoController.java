@@ -1,11 +1,18 @@
 package com.faculty.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.faculty.entity.Emp;
 import com.faculty.repository.EmpRepository;
@@ -44,4 +51,29 @@ public class DemoController {
 		// This returns a JSON or XML with the users
 		return empRepository.findAll();
 	}
+	
+	@GetMapping(path="/{id}")
+	public @ResponseBody ResponseEntity<Emp> getEmployeeById(@PathVariable("id") int empId)
+	{
+		Emp e=(Emp)empRepository.findOne(empId);
+		
+		if (e == null) {
+            return new ResponseEntity<Emp>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Emp>(e, HttpStatus.OK);
+	}
+	
+	@PostMapping(path="/add")
+	public ResponseEntity<Object> createEmp(@RequestBody Emp e)
+	{
+	
+		Emp emp=empRepository.save(e);
+		System.out.println("Message here: "+emp.getName());
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(emp.getId()).toUri();
+		
+		return ResponseEntity.created(location).build();
+	}
+	
+	
 }
