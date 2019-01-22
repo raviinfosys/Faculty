@@ -28,6 +28,7 @@ public class EmpService {
 		return emp;
 	}
 	
+	
 	public Emp addEmp(Emp emp)
 	{
 		Emp e=empRepository.save(emp);
