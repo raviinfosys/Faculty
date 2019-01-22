@@ -33,7 +33,6 @@ public class EmpController {
 		return empService.getEmployees();
 	}
 
-	
 	@GetMapping(path = "/emp/{id}")
 	public @ResponseBody ResponseEntity<Emp> getEmployeeById(@PathVariable("id") int empId) {
 		Emp e = (Emp) empService.getEmp(empId);

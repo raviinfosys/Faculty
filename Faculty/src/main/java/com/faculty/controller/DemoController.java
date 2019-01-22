@@ -32,6 +32,7 @@ public class DemoController {
 		return "Hi Welcome All";
 	}
 
+	
 	@GetMapping(path = "/ravi")
 	public String getString() {
 		return s.getString();

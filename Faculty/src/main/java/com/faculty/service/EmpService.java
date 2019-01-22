@@ -28,12 +28,12 @@ public class EmpService {
 		return emp;
 	}
 	
-	
 	public Emp addEmp(Emp emp)
 	{
 		Emp e=empRepository.save(emp);
 		return e;
 	}
+	
 	
 	public void removeEmp(int id)
 	{
