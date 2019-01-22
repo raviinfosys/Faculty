@@ -5,14 +5,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
 @Service
-public class SampleService {
+public class DemoService {
 
 	public String getString()
 	{
 		return "ravi";
 	}
+	
 	
 	public List<String> getList()
 	{

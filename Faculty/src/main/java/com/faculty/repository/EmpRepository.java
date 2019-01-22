@@ -10,4 +10,6 @@ import com.faculty.entity.Emp;
 //@Repository
 public interface EmpRepository extends CrudRepository<Emp, Integer> {
 
+	
+	
 }
