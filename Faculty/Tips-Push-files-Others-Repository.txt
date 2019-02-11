@@ -1,0 +1,9 @@
+Using below approach we can push files to OTHERS repository
+
+Reference Format:
+----------------
+git remote set-url origin https://USERNAME:PASSWORD@github.com/raviinfosys/faculty.git
+
+Actual Like:
+-----------
+git remote set-url origin https://raviinfosys:suryagitravi1@github.com/raviinfosys/faculty.git
